@@ -6,8 +6,7 @@ declare const gtag: Function;
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnDestroy {
     private routerSubscription = new Subscription;
