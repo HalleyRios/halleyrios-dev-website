@@ -1,11 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
-import { AppRoutingModule } from '../routes/app-routing.module';
-import { AppComponent } from './app.component';
+/* Modules */
+import { AppRoutingModule } from './routes/app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/* Components */
+import { AppComponent } from './app.component';
+
+/* Services */
+import { GoogleAnalyticsService } from './services/google-analytics/google-analytics.service';
+
+/* Envs */
 import { environment } from '../environments/environment';
-import { GoogleAnalyticsService } from '../services/google-analytics.service';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +24,9 @@ import { GoogleAnalyticsService } from '../services/google-analytics.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    TranslateModule.forRoot()
   ],
   providers: [GoogleAnalyticsService],
   bootstrap: [AppComponent]
